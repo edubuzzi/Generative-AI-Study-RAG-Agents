@@ -10,9 +10,9 @@ Question: {input}
 """)
 
 document_chain = create_stuff_documents_chain(llm, prompt)
-retriever = url_to_retriever("https://en.wikipedia.org/wiki/Oppenheimer_(film)")
+retriever = url_to_retriever("https://en.wikipedia.org/wiki/Bitcoin")
 
 retriever_chain = create_retrieval_chain(retriever, document_chain)
 
-response = retriever_chain.invoke({"input": "How many Oscars the movie Oppernheimer won in 2024"})
+response = retriever_chain.invoke({"input": "When's the next halving of Bitcoin"})
 print(response["answer"])

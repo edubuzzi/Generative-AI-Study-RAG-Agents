@@ -1,10 +1,10 @@
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
-from langchain_community.vectorstores import FAISS, Chroma
+from langchain_community.vectorstores import Chroma
+# If you prefer, you can use FAISS instead of Chroma => from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 def file_to_retriever(file_path):
-
     text_loader_kwargs = {'autodetect_encoding': True}
     loader = DirectoryLoader(file_path, glob="./*.txt", loader_cls=TextLoader, loader_kwargs=text_loader_kwargs)
     docs = loader.load()
