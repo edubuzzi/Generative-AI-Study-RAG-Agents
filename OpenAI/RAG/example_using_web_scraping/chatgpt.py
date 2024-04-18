@@ -7,7 +7,6 @@ from tools import pre_process
 load_dotenv()
 
 def oscar(movie, year, llm):
-
     prompt = PromptTemplate(
         input_variables=["movie", "year"],
         template="How many oscars {movie} won in {year}"
